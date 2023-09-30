@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a,b,t;
+    cin>>a>>b>>t;
+    if(t<b)
+        cout<<"0"<<endl;
+    else
+    {
+        int bis=0;
+       while(t!=0)
+       {
+           if(t<a) break;
+           t-=a;
+           bis+=b;
+       }
+       cout<<bis<<endl;
+    }
+
+    return 0;
+}

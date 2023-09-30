@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    float x;
+    cin>>x;
+    float c=.500;
+    float r=x-(int)x;
+    if(r<c)
+    {
+        cout<<floor(x)<<endl;
+    }
+    else
+        cout<<ceil(x)<<endl;
+
+    return 0;
+}
