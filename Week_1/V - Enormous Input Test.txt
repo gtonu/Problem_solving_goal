@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T,k,c=0;
+    cin>>T>>k;
+    while(T--)
+    {
+        int x;
+        cin>>x;
+        if(x%k==0)
+            c++;
+    }
+    cout<<c<<endl;
+
+    return 0;
+}
