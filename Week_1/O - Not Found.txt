@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string x;
+    cin>>x;
+    int fr[26]={0};
+    for(char c:x)
+    {
+        fr[c-97]++;
+    }
+    int a;  bool flag=false;
+    for(int i=0;i<26;i++)
+    {
+        if(fr[i]==0)
+            {
+                a=i;
+                flag=true;
+                break;
+            }
+    }
+    if(flag)
+    {
+          char c=a+97;
+        cout<<c<<endl;
+    }
+    else
+        cout<<"None"<<endl;
+
+
+    return 0;
+}

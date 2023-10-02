@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long int a,b;
+    cin>>a>>b;
+    long long int c=a;
+    int g=0;
+    while(c>=a && c<=b)
+    {
+        c*=2;
+        g++;
+    }
+    cout<<g<<endl;
+
+    return 0;
+}
