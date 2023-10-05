@@ -1,0 +1,38 @@
+class Solution{
+public:
+	int search(string pat, string txt) {
+	    int n=txt.size();
+	    int k=pat.size();
+	    int fr[26]={0};  int fr1[26]={0};
+	    for(char i:pat)
+	    {
+	        fr[i-97]++;
+	    }
+	    int i=0,j=0,ans=0;
+	    while(j<n)
+	    {
+	        bool flag=true; 
+	        fr1[txt[j]-97]++;
+	        if(j>=k-1)
+	        {
+	            for(int c=0;c<26;c++)
+	            {
+	                if(fr[c]!=fr1[c])
+	                {
+	                    flag=false;
+	                    break;
+	                }
+	            }
+	            if(flag)
+	            {
+	              ans++;
+	            }
+	              fr1[txt[i]-97]--;
+	              i++;
+	        }
+	        j++;
+	    }
+	    return ans;
+	}
+
+};
