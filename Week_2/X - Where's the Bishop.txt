@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool ispossible(int i,int j)
+{
+    return ((i>=0 && i<8) && (j>=0 && j<8));
+}
+void solve()
+{
+    vector<string> gr;
+    for(int i=0;i<8;i++)
+    {
+            string x;
+            cin>>x;
+            gr.push_back(x);
+
+    }
+    int k,l;
+    for(int i=0;i<8;i++)
+    {
+        for(int j=0;j<8;j++)
+        {
+            if(gr[i][j]=='#')
+            {
+                if(ispossible(i-1,j-1)&&ispossible(i-1,j+1)&&ispossible(i+1,j-1)&&ispossible(i+1,j+1))
+                {
+                    if(gr[i-1][j-1]=='#'&&gr[i-1][j+1]=='#'&&gr[i+1][j-1]=='#'&&gr[i+1][j+1]=='#')
+                    {
+                        k=i+1;
+                        l=j+1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    cout<<k<<" "<<l;
+
+}
+int main()
+{
+    int T;
+    cin>>T;
+    cin.ignore();
+    while(T--)
+    {
+        cout<<"\n";
+       solve();
+    }
+
+    return 0;
+}
