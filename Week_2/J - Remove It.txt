@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,x;
+    cin>>n>>x;
+    vector<int> v;   vector<int> v1;
+    for(int i=0;i<n;i++)
+    {
+        int j;
+        cin>>j;
+        v.push_back(j);
+    }
+    int c=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]==x)
+            c++;
+            else
+                v1.push_back(v[i]);
+    }
+    if(c==n)
+        cout<<'\n';
+    else
+    {
+       for(int i:v1)
+          cout<<i<<" ";
+    }
+    return 0;
+}

@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int a,b,c,d;
+    cin>>a>>b>>c>>d;
+    int co=0;
+    if(a>b)
+    {
+        co++;
+        if(a>c)
+            co++;
+        if(a>d)
+            co++;
+    }
+    else if(a>c)
+    {
+        co++;
+        if(a>d)
+            co++;
+    }
+    else if(a>d)
+        co++;
+    cout<<3-co<<"\n";
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}

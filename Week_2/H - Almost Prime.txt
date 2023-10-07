@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=3e3;
+vector<int> v;
+void prime_count(int n)
+{
+    for(int i=1;i<=n;i++)
+    {
+        int c=0;
+        for(int j=2;j<=n;j++)
+        {
+            if(i%j==0)
+                c++;
+        }
+        if(c==1)
+            v.push_back(i);
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    prime_count(n);
+    int co=0;
+    for(int i=1;i<=n;i++)
+    {
+        int c=0;
+        for(int j:v)
+        {
+            if(i%j==0)
+                c++;
+        }
+        if(c==2)
+            co++;
+    }
+    cout<<co<<'\n';
+
+    return 0;
+}
