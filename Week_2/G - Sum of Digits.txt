@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    long long int sum=0,c=1;
+    if(s.size()==1)
+        cout<<"0"<<'\n';
+    else
+    {
+        for(int i=0; i<s.size(); i++)
+            sum+=s[i]-48;
+            if(sum<10)
+            {
+                cout<<c<<'\n';
+                return 0;
+            }
+        string b=to_string(sum);
+        while(sum!=1)
+        {
+            long long int sum1=0;
+            for(int i=0;i<b.size();i++)
+                sum1+=b[i]-48;
+                c++;
+            sum=sum1;
+            if(sum<10)
+                break;
+            b=to_string(sum);
+        }
+        cout<<c<<'\n';
+    }
+
+
+    return 0;
+}

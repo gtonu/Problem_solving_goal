@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k,c=0;
+    cin>>n>>k;
+    if(k==10)
+    {
+        string a=to_string(n);
+        cout<<a.size()<<'\n';
+    }
+    else
+    {
+        while(n>=1)
+        {
+            n/=k;
+            c++;
+        }
+        cout<<c<<'\n';
+    }
+
+    return 0;
+}
