@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool is_palindrome(string s)
+{
+    string a=s;
+    reverse(a.begin(),a.end());
+    for(int i=0;i<s.size();i++)
+    {
+        if(s[i]!=a[i])
+            return false;
+    }
+    return true;
+}
+void solve()
+{
+    string s;
+    int n,c=0;
+    cin>>s>>n;
+    int h=n/60;
+    int m=n%60;
+    string a=s;
+    if(is_palindrome(s))
+        c++;
+    int HH=((s[0]-'0')*10)+(s[1]-'0');
+    int MM=((s[3]-'0')*10)+(s[4]-'0');
+    MM+=m;
+    if(MM>59)
+        HH++;
+    MM%=60;
+    HH+=h;
+    HH%=24;
+    a[0]=((HH/10)+'0');
+    a[1]=((HH%10)+'0');
+    a[3]=((MM/10)+'0');
+    a[4]=((MM%10)+'0');
+    while(a!=s)
+    {
+        if(is_palindrome(a))
+            c++;
+        int HH=((a[0]-'0')*10)+(a[1]-'0');
+        int MM=((a[3]-'0')*10)+(a[4]-'0');
+        //cout<<HH<<" "<<MM<<'\n';
+        MM+=m;
+        if(MM>59)
+            HH++;
+        MM%=60;
+        HH+=h;
+        HH%=24;
+        a[0]=((HH/10)+'0');
+        a[1]=((HH%10)+'0');
+        a[3]=((MM/10)+'0');
+        a[4]=((MM%10)+'0');
+    }
+    cout<<c<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+       solve();
+    }
+
+    return 0;
+}
