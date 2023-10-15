@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int n;  string s;
+    cin>>n>>s;
+    int c=0,t=0,I=0,m=0,u=0,r=0;
+    for(int i=0;i<s.size();i++)
+    {
+        if(s[i]=='T')
+            {
+                c++;
+                t++;
+            }
+        else if(s[i]=='i')
+            {
+                c++;
+                I++;
+            }
+        else if(s[i]=='m')
+            {
+                c++;
+                m++;
+            }
+        else if(s[i]=='u')
+            {
+                c++;
+                u++;
+            }
+        else if(s[i]=='r')
+            {
+                c++;
+                r++;
+            }
+    }
+    
+    if(s.size()>5)
+        cout<<"NO"<<'\n';
+    else if(c==5)
+    {
+        if(t==1&&I==1&&m==1&&u==1&&r==1)
+            cout<<"YES"<<'\n';
+        else
+            cout<<"NO"<<'\n';
+    }
+    else
+        cout<<"NO"<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}

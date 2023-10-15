@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    string s;
+    cin>>s;  bool flag=true;
+    if(s.size()<3)
+    {
+        if(s=="Y"||s=="e"||s=="s"||s=="Ye"||s=="es"||s=="sY")
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<'\n';
+    }
+    else
+    {
+        for(int i=0;i<s.size()-1;i++)
+        {
+            if(s[i]=='Y')
+            {
+                if(s[i+1]!='e')
+                {
+                    flag=false;
+                    break;
+                }
+            }
+            else if(s[i]=='e')
+            {
+                if(s[i+1]!='s')
+                {
+                    flag=false;
+                    break;
+                }
+            }
+            else if(s[i]=='s')
+            {
+                if(s[i+1]!='Y')
+                {
+                    flag=false;
+                    break;
+                }
+            }
+            else
+            {
+                flag=false;
+                break;
+            }
+        }
+        if(flag)
+            cout<<"YES"<<'\n';
+        else
+            cout<<"NO"<<'\n';
+    }
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+    
+    return 0;
+}
