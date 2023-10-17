@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int n;
+    cin>>n;
+     string s;
+     cin>>s;   bool flag=true;
+     if(s.size()<4)
+        cout<<"NO"<<endl;
+    else if(s[0]!='m'&&s[0]!='M')
+        cout<<"NO"<<'\n';
+    else if(s[s.size()-1]!='w'&&s[s.size()-1]!='W')
+        cout<<"NO"<<'\n';
+    else
+    {
+        for(int i=0;i<s.size()-1;i++)
+        {
+            if(s[i]=='m'||s[i]=='M')
+            {
+                if((s[i+1]!='m'&&s[i+1]!='M')&&(s[i+1]!='e'&&s[i+1]!='E'))
+                {
+                    flag=false;
+                    break;
+                }
+            }
+            else if(s[i]=='e'||s[i]=='E')
+            {
+                if((s[i+1]!='e'&&s[i+1]!='E')&&(s[i+1]!='o'&&s[i+1]!='O'))
+                {
+                    flag=false;
+                    break;
+                }
+            }
+            else if(s[i]=='o'||s[i]=='O')
+            {
+                if((s[i+1]!='o'&&s[i+1]!='O')&&(s[i+1]!='w'&&s[i+1]!='W'))
+                {
+                    flag=false;
+                    break;
+                }
+            }
+            else if(s[i]=='w'||s[i]=='W')
+            {
+                if(s[i+1]!='W'&&s[i+1]!='w')
+                {
+                    flag=false;
+                    break;
+                }
+            }
+        }
+        if(flag)
+            cout<<"YES"<<'\n';
+        else
+            cout<<"NO"<<'\n';
+    }
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}
