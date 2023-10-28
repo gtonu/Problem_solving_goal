@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve()
+{
+    int n,q;
+    cin>>n>>q;
+    vector<int> v;
+    int even=0,odd=0;
+    ll sum=0,esum=0,osum=0;
+    for(int i=0; i<n; i++)
+    {
+        int x;
+        cin>>x;
+        if(x%2==0)
+        {
+            even++;
+            esum+=x;
+        }
+        else
+        {
+            odd++;
+            osum+=x;
+        }
+        v.push_back(x);
+    }
+    //sum=osum+esum;
+    while(q--)
+    {
+        int o,V;
+        cin>>o>>V;
+        if(o==0&&V%2==0)
+        {
+            esum+=(even*V);
+            if(even>0)
+                sum=esum+osum;
+            else
+                sum=osum;
+
+        }
+        else if(o==0&&V%2!=0)
+        {
+            osum+=(esum+(even*V));
+            esum=0;
+            sum=osum;
+            odd+=even;
+            even=0;
+        }
+        else if(o==1&&V%2!=0)
+        {
+            esum+=(osum+(odd*V));
+            osum=0;
+            sum=esum;
+            even+=odd;
+            odd=0;
+        }
+        else if(o==1&&V%2==0)
+        {
+            osum+=(odd*V);
+            if(osum>0)
+                sum=esum+osum;
+            else
+                sum=esum;
+        }
+        cout<<sum<<'\n';
+    }
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}

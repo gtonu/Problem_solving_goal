@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    string a,b;
+    cin>>a>>b;
+    int size1=0,size2=0;
+    int n=a.size();
+    int m=b.size();
+    if(a[n-1]=='M')
+    {
+        size1+=2;
+    }
+    else if(a[n-1]=='S')
+    {
+        size1+=1;
+        for(int i=n-2; i>=0; i--)
+        {
+            if(a[i]=='X')
+                size1-=1;
+        }
+    }
+    else if(a[n-1]=='L')
+    {
+        size1+=3;
+        for(int i=n-2; i>=0; i--)
+        {
+            if(a[i]=='X')
+                size1+=1;
+        }
+    }
+    if(b[m-1]=='M')
+    {
+        size2+=2;
+    }
+    else if(b[m-1]=='S')
+    {
+        size2+=1;
+        for(int i=m-2; i>=0; i--)
+        {
+            if(b[i]=='X')
+                size2-=1;
+        }
+    }
+    else if(b[m-1]=='L')
+    {
+        size2+=3;
+        for(int i=m-2; i>=0; i--)
+        {
+            if(b[i]=='X')
+                size2+=1;
+        }
+    }
+    if(size1>size2)
+        cout<<">"<<'\n';
+    else if(size1<size2)
+        cout<<"<"<<'\n';
+    else if(size1==size2)
+        cout<<"="<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}

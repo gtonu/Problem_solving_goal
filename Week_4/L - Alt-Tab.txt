@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int n;
+    cin>>n;
+    vector<string> gr;  map<string,bool> mp;
+    for(int i=0;i<n;i++)
+    {
+        string s;
+        cin>>s;
+        gr.push_back(s);
+    }
+    string a;
+    for(int i=n-1;i>=0;i--)
+    {
+        int n=gr[i].size();
+        if(!mp[gr[i]])
+        {
+            mp[gr[i]]=true;
+            a+=gr[i][n-2];
+            a+=gr[i][n-1];
+        }
+    }
+    cout<<a<<'\n';
+}
+int main()
+{
+    solve();
+
+    return 0;
+}
