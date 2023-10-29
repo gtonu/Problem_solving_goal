@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    string a,b;   int c1=0,c2=0;
+    cin>>a>>b;
+    int n=a.size();
+    int m=b.size();
+    for(int i=0;i<a.size();i++)
+    {
+        if(a[i]=='X')
+            c1++;
+    }
+    for(int i=0;i<b.size();i++)
+    {
+        if(b[i]=='X')
+            c2++;
+    }
+    if((a[n-1]=='M'&&b[m-1]=='M')||((a[n-1]=='L'&&b[m-1]=='L')&&c1==c2)||(a[n-1]=='S'&&b[m-1]=='S')&&c1==c2)
+        cout<<"="<<'\n';
+    else if((a[n-1]=='M'&&b[m-1]=='L')||(a[n-1]=='S'&&b[m-1]=='L')||(a[n-1]=='S'&&b[m-1]=='M')||(a[n-1]=='L'&&b[m-1]=='L')&&c1<c2||(a[n-1]=='S'&&b[m-1]=='S')&&c1>c2)
+        cout<<"<"<<'\n';
+    else if((a[n-1]=='L'&&b[m-1]=='S')||(a[n-1]=='L'&&b[m-1]=='M')||(a[n-1]=='M'&&b[m-1]=='S')||(a[n-1]=='L'&&b[m-1]=='L')&&c1>c2||(a[n-1]=='S'&&b[m-1]=='S')&&c1<c2)
+        cout<<">"<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}
