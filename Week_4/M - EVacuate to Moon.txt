@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve()
+{
+    ll n,p,h;
+    ll energy=0;
+    cin>>n>>p>>h;
+    vector<ll> c(n);    vector<ll> b(p);
+    for(int i=0;i<n;i++) cin>>c[i];
+    for(int i=0;i<p;i++) cin>>b[i];
+    sort(c.begin(),c.end(),greater<int>());
+    sort(b.begin(),b.end(),greater<int>());
+    int i=0,j=0;
+    while(i<n&&j<p)
+    {
+        if((b[j]*h)<=c[i])
+            energy=(ll)energy+(b[j]*h);
+        else
+            energy=(ll)energy+c[i];
+        i++;
+        j++;
+    }
+    cout<<energy<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}
