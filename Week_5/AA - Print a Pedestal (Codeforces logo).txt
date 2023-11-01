@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int n;
+    cin>>n;
+    int t=n;
+    float x,y,z;
+    y=(float)n/3;
+    y=floor(y)+1;
+    n-=y;
+    x=(float)n/2;
+    x=ceil(x);
+    z=t-(x+y);
+    if(x==y)
+    {
+        y+=1;
+        z-=1;
+    }
+    if(x==z)
+    {
+        y+=1;
+        z-=1;
+    }
+    cout<<x<<" "<<y<<" "<<z<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}
