@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pai;
+void solve()
+{
+    int n,q;
+    cin>>n>>q;
+    map<int,pai> mp;
+    int Min=INT_MAX;
+    int Max=INT_MIN;
+    for(int i=0; i<n; i++)
+    {
+        int x;
+        cin>>x;
+        //if(mp.find(x)==mp.end())
+        //Max=max(Max,i);
+        if(mp.find(x)==mp.end())
+        {
+            //Min=min(Min,i);
+            mp[x].first=i;
+            mp[x].second=i;
+        }
+        else
+        {
+            mp[x].second=i;
+        }
+    }
+    while(q--)
+    {
+        int x,y;
+        cin>>x>>y;
+        /*if(mp.find(x)==mp.end()||mp.find(y)==mp.end()||mp[x].first>mp[y].second)
+        {
+            cout<<"NO"<<'\n';
+        }
+        else
+            cout<<"YES"<<'\n';*/
+        if(mp.find(x)!=mp.end()&&mp.find(y)!=mp.end())
+        {
+            if(mp[x].first<mp[y].second)
+                cout<<"YES"<<'\n';
+            else
+                cout<<"NO"<<'\n';
+        }
+        else
+            cout<<"NO"<<'\n';
+    }
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}

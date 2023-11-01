@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int n;
+    cin>>n;
+    string s;
+    for(int i=9;i>=1;i--)
+    {
+        if(n>=i)
+        {
+            s=char(i+'0')+s;
+            n-=i;
+        }
+    }
+    cout<<s<<'\n';
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}
