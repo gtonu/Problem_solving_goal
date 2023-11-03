@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve()
+{
+    int n,h,m;
+    bool flag=false;
+    cin>>n>>h>>m;
+    vector<int> H(n);
+    vector<int> M(n);
+    for(int i=0; i<n; i++)
+    {
+        int a,b;
+        cin>>a>>b;
+        H[i]=a;
+        M[i]=b;
+        if(H[i]==h&&M[i]==m)
+        {
+            flag=true;
+        }
+    }
+    int sum=0;
+    if(flag)
+        cout<<"0"<<" "<<"0"<<'\n';
+    else
+    {
+        while(1)
+        {
+            if(m==59)
+                h+=1;
+            m+=1;
+            sum+=1;
+            m%=60;
+            h%=24;
+            for(int i=0; i<n; i++)
+            {
+                if(h==H[i]&&m==M[i])
+                    {
+                        flag=true;
+                        break;
+                    }
+            }
+            if(flag)
+                break;
+        }
+        cout<<sum/60<<" "<<sum%60<<'\n';
+    }
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+
+    return 0;
+}
