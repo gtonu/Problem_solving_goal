@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+   int n; char ch; string s;
+     cin>>n>>ch>>s;
+     s+=s;
+     int ans=0;
+     int l=0;
+     for(int i=s.size()-1;i>=0;i--)
+     {
+          if(s[i]=='g')l=i;
+          if(s[i]==ch)
+          ans = max(ans,l-i); 
+     }
+     cout<<ans<<endl; 
+}
+int main()
+{
+     
+     #ifndef ONLINE_JUDGE
+          freopen("input.txt", "r",stdin);
+        freopen("output.txt", "w",stdout);
+     #endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+          solve();
+   }
+   return 0;
+}
