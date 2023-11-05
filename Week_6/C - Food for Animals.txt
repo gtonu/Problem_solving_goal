@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+   int a,b,c,x,y;
+   cin>>a>>b>>c>>x>>y;
+   if(a>=x&&b>=y&&c>=0)
+      cout<<"YES"<<'\n';
+   else if(a<x&&b>=y)
+   {
+       if(a+c>=x)
+          cout<<"YES"<<'\n';
+     else
+          cout<<"NO"<<'\n';
+   }
+   else if(a>=x&&b<y)
+   {
+     if(b+c>=y)
+          cout<<"YES"<<'\n';
+     else
+          cout<<"NO"<<'\n';
+   }
+   else
+     {
+          
+               if((a+c>=x)&&(a+c-x)+b>=y)
+                    cout<<"YES"<<'\n';
+               else
+                    cout<<"NO"<<'\n';
+          
+     }  
+}
+int main()
+{
+     
+     #ifndef ONLINE_JUDGE
+          freopen("input.txt", "r",stdin);
+        freopen("output.txt", "w",stdout);
+     #endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+          solve();
+   }
+   return 0;
+}

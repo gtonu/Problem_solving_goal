@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve()
+{
+      int n;
+      cin>>n;
+      vector<int> v1(n),v2(n);
+      for(int i=0;i<n;i++) cin>>v1[i];
+      for(int i=0;i<n;i++) cin>>v2[i];
+      cout<<v2[0]-v1[0]<<" ";
+      int c=v2[0];
+      for(int i=1;i<n;i++)
+      {
+          if(v1[i]<=c)
+          {
+               cout<<v2[i]-v2[i-1]<<" ";
+               c=max(v2[i],c);
+          }
+          else
+          {
+               cout<<v2[i]-v1[i]<<" ";
+               c=max(v2[i],c);
+          }
+      }
+      cout<<'\n';
+}
+int main()
+{
+	
+	#ifndef ONLINE_JUDGE
+     	freopen("input.txt", "r",stdin);
+	   freopen("output.txt", "w",stdout);
+	#endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+   	  solve();
+   }
+   // solve();
+   return 0;
+}
