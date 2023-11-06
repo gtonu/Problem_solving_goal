@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll calculate(vector<int> v,int mid)
+{
+     ll w=0;
+     for(int i=0;i<v.size();i++)
+     {
+          if(v[i]<mid)
+               w+=(mid-v[i]);
+
+     }
+     return w;
+}
+void solve()
+{
+   ll n,x;
+   cin>>n>>x;
+   vector<int> v(n);
+   for(int i=0;i<n;i++) cin>>v[i];
+   int l=0,r=INT_MAX;
+   int Min=INT_MAX;
+   while(r-l>1)
+   {
+     int mid=l+(r-l)/2;
+     ll y=calculate(v,mid);
+     if(y>x)
+     {
+          r=mid;
+     }
+     else
+               l=mid;
+          
+   }
+   cout<<l<<'\n';
+}
+int main()
+{
+     
+     #ifndef ONLINE_JUDGE
+          freopen("input.txt", "r",stdin);
+        freopen("output.txt", "w",stdout);
+     #endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+          solve();
+   }
+   return 0;
+}

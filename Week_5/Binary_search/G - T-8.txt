@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+int calculate(vector<int> v,int mid,int x)
+{
+     int c=0;
+     for(int i=0;i<v.size();i++)
+     {
+          if(v[i]>mid)
+          {
+               if(x>v[i])
+               {
+                    x-=v[i];
+                    c++;
+               }
+          }
+          else
+               c++;
+     }
+     return c;
+}
+void solve()
+{
+   int n,h;
+   cin>>n>>h;
+   int temp=h;
+   vector<int> v(n);
+   for(int i=0;i<n;i++) cin>>v[i];
+   int l=0,r=INT_MAX; int Min=INT_MAX,mid;
+   while(l<=r)
+   {
+        mid=l+(r-l)/2;
+       int x=calculate(v,mid,temp);
+       if(x==v.size())
+       {
+          r=mid-1;
+          Min=min(Min,mid);
+       }
+       else
+          {
+               l=mid+1;
+          }
+   }
+   cout<<Min<<'\n';
+}
+int main()
+{
+     
+     #ifndef ONLINE_JUDGE
+          freopen("input.txt", "r",stdin);
+        freopen("output.txt", "w",stdout);
+     #endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+          solve();
+   }
+   return 0;
+}
