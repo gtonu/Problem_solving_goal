@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+     int a,b;
+     cin>>a>>b;
+     int x=a+b+(a*b);
+     string s;
+     while(x>0)
+     {
+         int r=x%10;
+         x/=10;
+         s+=to_string(r);
+     }
+     if(s=="111")
+          cout<<"YES"<<'\n';
+     else
+          cout<<"NO"<<'\n';
+}
+int main()
+{
+     
+     #ifndef ONLINE_JUDGE
+          freopen("input.txt", "r",stdin);
+        freopen("output.txt", "w",stdout);
+     #endif
+   // int T;
+   // cin>>T;
+   // while(T--)
+   // {
+   //        solve();
+   // }
+        solve();
+   return 0;
+}
