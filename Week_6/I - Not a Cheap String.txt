@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+	int n;
+	string s;
+	string a="";
+	cin>>s>>n;
+	int sum=0;
+	string w(s);
+	for(int i=0;i<s.size();i++)
+	{
+		sum+=s[i]-'a'+1;
+	}
+	sort(w.begin(),w.end(),greater<int>());
+    map<char,int> mp;
+    for(int i=0;i<w.size();i++)
+    {
+    	if(sum>n)
+    	{
+    		mp[w[i]]++;
+    		sum-=w[i]-'a'+1;
+    	}
+    }
+    for(int i=0;i<s.size();i++)
+    {
+    	if(mp[s[i]]>0)
+    	{
+    		mp[s[i]]--;
+    		continue;
+    	}
+    	cout<<s[i];
+    }
+	cout<<'\n';
+}
+int main()
+{
+	
+	#ifndef ONLINE_JUDGE
+     	freopen("input.txt", "r",stdin);
+	   freopen("output.txt", "w",stdout);
+	#endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+   	  solve();
+   }
+   return 0;
+}

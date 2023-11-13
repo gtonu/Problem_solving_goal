@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+	string w = "aa";
+    map<string, int> pn;
+    int i = 1;
+    for(w[0] = 'a'; w[0] <= 'z'; w[0]++)
+        for(w[1] = 'a'; w[1] <= 'z'; w[1]++)
+            if(w[0] != w[1])
+                pn[w] = i++;
+    string a;
+    cin>>a;
+    cout<<pn[a]<<'\n';
+}
+int main()
+{
+	
+	#ifndef ONLINE_JUDGE
+     	freopen("input.txt", "r",stdin);
+	   freopen("output.txt", "w",stdout);
+	#endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+   	  solve();
+   }
+   return 0;
+}
