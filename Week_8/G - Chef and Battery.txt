@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+	int n;
+	cin>>n;
+	int c=0;
+	while(true)
+	{
+		if(n==50)
+			break;
+		if(n>50)
+		{
+			n-=3;
+			c++;
+		}
+		else
+		{
+			n+=2;
+			c++;
+		}
+	}
+	cout<<c<<'\n';
+}
+int main()
+{
+	
+	#ifndef ONLINE_JUDGE
+     	freopen("input.txt", "r",stdin);
+	   freopen("output.txt", "w",stdout);
+	#endif
+   int T;
+   cin>>T;
+   while(T--)
+   {
+   	  solve();
+   }
+   return 0;
+}
