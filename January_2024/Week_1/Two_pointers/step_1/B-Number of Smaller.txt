@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+	int n,m;
+	cin>>n>>m;
+	vector<int> v1(n),v2(m);
+	for(int i=0;i<n;i++) cin>>v1[i];
+	for(int i=0;i<m;i++) cin>>v2[i];
+	int i=0,j=0;
+    while(i<n&&j<m)
+    {
+    	if(v1[i]<v2[j])
+    		i++;
+    	else
+    	{
+    		j++;
+    		cout<<i<<" ";
+    	}
+    }
+    while(j<m)
+    {
+    	cout<<i<<" ";
+    	j++;
+    }
+}
+int main()
+{
+	
+	#ifndef ONLINE_JUDGE
+     	freopen("input.txt", "r",stdin);
+	   freopen("output.txt", "w",stdout);
+	#endif
+   // int T;
+   // cin>>T;
+   // while(T--)
+   // {
+   // 	  solve();
+   // }
+	   solve();
+   return 0;
+}
